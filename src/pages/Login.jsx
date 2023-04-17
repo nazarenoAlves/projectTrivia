@@ -3,6 +3,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { loginAction } from '../redux/actions';
 import { fetchToken } from '../services/api';
+import style from './Login.module.css';
+import logo from '../img/logoInit.png';
 
 // const arrToken = [];
 class Login extends React.Component {
@@ -61,38 +63,43 @@ class Login extends React.Component {
     const { history } = this.props;
     return (
       <div>
-        <input
-          type="text"
-          data-testid="input-player-name"
-          placeholder="Insira seu nome"
-          name="name"
-          value={ name }
-          onChange={ this.onInputChange }
-        />
-        <input
-          type="text"
-          data-testid="input-gravatar-email"
-          placeholder="Insira seu Email"
-          name="email"
-          value={ email }
-          onChange={ this.onInputChange }
-        />
-        <button
-          type="button"
-          data-testid="btn-play"
-          disabled={ btnEnable }
-          onClick={ this.onClick }
-        >
-          Play
+        <div className={ style.contentImg }>
+          <img src={ logo } alt="logo" className={ style.pulseImg } />
+        </div>
+        <div className={ style.contentInput }>
+          <input
+            type="text"
+            data-testid="input-player-name"
+            placeholder="Insira seu nome"
+            name="name"
+            value={ name }
+            onChange={ this.onInputChange }
+          />
+          <input
+            type="text"
+            data-testid="input-gravatar-email"
+            placeholder="Insira seu Email"
+            name="email"
+            value={ email }
+            onChange={ this.onInputChange }
+          />
+          <button
+            type="button"
+            data-testid="btn-play"
+            disabled={ btnEnable }
+            onClick={ this.onClick }
+          >
+            Play
 
-        </button>
-        <button
-          type="button"
-          data-testid="btn-settings"
-          onClick={ () => history.push('/settings') }
-        >
-          SETTINGS
-        </button>
+          </button>
+          {/* <button
+            type="button"
+            data-testid="btn-settings"
+            onClick={ () => history.push('/settings') }
+          >
+            SETTINGS
+          </button> */}
+        </div>
       </div>
     );
   }

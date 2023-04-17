@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.content {
+    background-image: url('../img/background.png');
+    width: 100vw;
+    height: 85vh;
+    background-size: cover;
+}
+
+
+.contentQuestion {
+    position: absolute;
+    width: 439px;
+    height: 286px;
+    left: 101px;
+    top: 200px;
+    background: #FFFFFF;
+    box-shadow: 1px 4px 13px 2px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.categoryQuestion {
+    position: absolute;
+    width: 413px;
+    height: 45px;
+    left: 15px;
+    top: -15px;
+
+    background: #F9BA18;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 100px;
+    text-align: center;
+}
+
+.contentAnswer {
+    position: absolute;
+    width: 200px;
+    height: 286px;
+    left: 750px;
+    top: 180px;
+}
+
+.contentAnswer button {
+    width: 519px;
+    height: 64px;
+    left: 661px;
+    top: 361px;
+    border-radius: 100px;
+    background-color: white;
+    margin: 10px 0px 0px 0px;
+}
+
+.perguntas {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.timer {
+    text-align: center;
+    margin-top: 80px;
+}
+
+.logoGames img {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    top: -250px;
+    left: 60px;
+}

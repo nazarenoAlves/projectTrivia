@@ -1,17 +1,19 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
+import style from './Ranking.module.css';
+import imgConst from '../img/construcao.gif';
 
 class Ranking extends React.Component {
   render() {
     const { history } = this.props;
     return (
-      <div>
+      <div className={ style.contentRankig }>
         <h3
           data-testid="ranking-title"
         >
           Ranking
-
+          <img src={ imgConst } alt="imgConstr" />
         </h3>
         <button
           type="button"

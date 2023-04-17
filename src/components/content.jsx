@@ -1,10 +1,13 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
+import { BsFillStopwatchFill } from 'react-icons/bs';
 import { fetchQuiz } from '../services/api';
 import Loading from './loading';
 import './button.css';
 import { assertionAction, scoreAction } from '../redux/actions';
+import style from './Content.module.css';
+import logoGames from '../img/logoGames.png';
 
 const ERROR_NUMBER = 3;
 const FINAL_QUESTION = 4;
@@ -132,60 +135,74 @@ class ContentGames extends React.Component {
     const negative = -1;
     let index2 = negative;
     return (
-      <div>
+      <div className={ style.content }>
+
         {loading ? <Loading /> : (
-          <div>
-            <h3>Categoria</h3>
-            <p data-testid="question-category">
-              {results[nextQuestion].category}
-            </p>
-            <h3>Pergunta</h3>
-            <p data-testid="question-text">
-              {results[nextQuestion].question}
-            </p>
-            <div data-testid="answer-options">
-              {questionArr.map((element, index) => {
-                let classCss = '';
-                if (response) {
-                  classCss = element === results[nextQuestion].correct_answer
-                    ? 'correctAnswer' : 'incorrectAnswer';
-                }
-                index2 += element === results[nextQuestion].correct_answer ? 0 : 1;
-                return (
-                  <button
-                    type="button"
-                    data-testid={ element === results[nextQuestion].correct_answer
-                      ? 'correct-answer' : `wrong-answer-${index2}` }
-                    key={ index }
-                    disabled={ btnDisable }
-                    className={ classCss }
-                    onClick={
-                      this.checkQuestion
-                    }
-                  >
-                    {element}
-                  </button>
-                );
-              })}
-              <div>
-                {btnNext
-                 && (
-                   <div>
-                     <button
-                       type="button"
-                       data-testid="btn-next"
-                       onClick={
-                         this.nextQues
-                       }
-                     >
-                       Next
-                     </button>
-                   </div>)}
-              </div>
+          <div className={ style.contentQuestion }>
+            <div className={ style.categoryQuestion }>
+              <p data-testid="question-category">
+                {results[nextQuestion].category}
+              </p>
             </div>
-            <span>{count}</span>
+            <div className={ style.logoGames }>
+              <img src={ logoGames } alt="logoGames" />
+            </div>
+            <div className={ style.perguntas }>
+              <h3>Pergunta</h3>
+              <p data-testid="question-text">
+                {results[nextQuestion].question}
+              </p>
+            </div>
+            <div className={ style.timer }>
+
+              <span>
+                <BsFillStopwatchFill />
+                {count}
+              </span>
+            </div>
           </div>
         )}
+        <div data-testid="answer-options" className={ style.contentAnswer }>
+          {questionArr.map((element, index) => {
+            let classCss = '';
+            if (response) {
+              classCss = element === results[nextQuestion].correct_answer
+                ? 'correctAnswer' : 'incorrectAnswer';
+            }
+            index2 += element === results[nextQuestion].correct_answer ? 0 : 1;
+            return (
+              <button
+                type="button"
+                data-testid={ element === results[nextQuestion].correct_answer
+                  ? 'correct-answer' : `wrong-answer-${index2}` }
+                key={ index }
+                disabled={ btnDisable }
+                className={ classCss }
+                onClick={
+                  this.checkQuestion
+                }
+              >
+                {element}
+              </button>
+            );
+          })}
+          <div>
+            {btnNext
+              && (
+                <div>
+                  <button
+                    type="button"
+                    data-testid="btn-next"
+                    onClick={
+                      this.nextQues
+                    }
+                  >
+                    Next
+                  </button>
+                </div>)}
+          </div>
+        </div>
+
       </div>
     );
   }

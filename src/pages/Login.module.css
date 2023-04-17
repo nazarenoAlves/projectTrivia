@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+.contentInput {
+  position: absolute;
+  width: 614px;
+  height: 266px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0px 2px 11px 0px rgba(0, 0, 0, 0.81);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  flex-wrap: wrap;
+}
+
+.contentInput input {
+  height: 45px;
+  width: 519px;
+  left: 380px;
+  top: 364px;
+  border-radius: 10px;
+  padding: 12px 16px 12px 16px;
+  border: 1px solid gray;
+  margin-top: 30px;
+}
+
+
+
+/* CSS */
+.contentInput button {
+  background-color: #0093E9;
+  border: 1px solid #0093E9;
+  background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  font-family: "Akzidenz Grotesk BQ Medium", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  outline: none;
+  outline: 0;
+  padding: 10px 25px;
+  text-align: center;
+  transform: translateY(0);
+  transition: transform 150ms, box-shadow 150ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  height: 45px;
+  width: 519px;
+  margin-top: 30px;
+}
+
+.contentInput button:hover {
+  box-shadow: rgba(0, 0, 0, .15) 0 3px 9px 0;
+  transform: translateY(-2px);
+}
+
+.contentInput button:disabled {
+  cursor: not-allowed;
+}
+
+@media (min-width: 768px) {
+  .contentInput button {
+    padding: 10px 30px;
+  }
+}
+
+.contentImg {
+  position: absolute;
+  left: 500px;
+  top: -100px;
+}
+
+.pulseImg {
+  animation: pulse 0.7s infinite;
+  margin: 0 auto;
+  display: table;
+  animation-direction: alternate;
+  -webkit-animation-name: pulse;
+  animation-name: pulse;
+}
+
+@-webkit-keyframes pulseImg {
+  0% {
+    -webkit-transform: scale(1);
+    /* -webkit-filter: brightness(100%); */
+  }
+
+  100% {
+    -webkit-transform: scale(1.1);
+    /* -webkit-filter: brightness(200%); */
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    /* filter: brightness(100%); */
+  }
+
+  100% {
+    transform: scale(1.1);
+    /* filter: brightness(200%); */
+  }
+}

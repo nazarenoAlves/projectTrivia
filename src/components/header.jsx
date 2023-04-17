@@ -2,6 +2,8 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import md5 from 'crypto-js/md5';
 import { connect } from 'react-redux';
+import { BsFillStarFill } from 'react-icons/bs';
+import style from './Header.module.css';
 
 class Header extends React.Component {
   state = {
@@ -26,13 +28,18 @@ class Header extends React.Component {
     const { name, score } = this.props;
     return (
       <div>
-        <img
-          data-testid="header-profile-picture"
-          alt="avatar"
-          src={ `https://www.gravatar.com/avatar/${email}` }
-        />
-        <span data-testid="header-player-name">{name}</span>
-        <span data-testid="header-score">{score}</span>
+        <div className={ style.contentHeader }>
+          <img
+            data-testid="header-profile-picture"
+            alt="avatar"
+            src={ `https://www.gravatar.com/avatar/${email}` }
+          />
+          <span data-testid="header-player-name">{name}</span>
+          <span data-testid="header-score">
+            <BsFillStarFill />
+            {`Pontos: ${score}`}
+          </span>
+        </div>
       </div>
     );
   }
